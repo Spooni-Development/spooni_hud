@@ -17,6 +17,9 @@ Config.Setup = {
     name = true,
     desc = true,
     
+    serverName = 'Your Server',
+    serverDesc = 'Powered by VORP Framework',
+    
     commands = {
         toggle = 'toggleHUD',
         dev = 'updateHUD',

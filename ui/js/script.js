@@ -47,8 +47,14 @@
         if (DOM.rol) DOM.rol.style.display = config.rol ? '' : 'none';
         if (DOM.id) DOM.id.style.display = config.id ? '' : 'none';
         if (DOM.temp) DOM.temp.style.display = config.temperature ? '' : 'none';
-        if (DOM.serverName) DOM.serverName.style.display = config.name ? '' : 'none';
-        if (DOM.serverDesc) DOM.serverDesc.style.display = config.desc ? '' : 'none';
+        if (DOM.serverName) {
+            DOM.serverName.style.display = config.name ? '' : 'none';
+            if (config.serverName) DOM.serverName.textContent = config.serverName;
+        }
+        if (DOM.serverDesc) {
+            DOM.serverDesc.style.display = config.desc ? '' : 'none';
+            if (config.serverDesc) DOM.serverDesc.textContent = config.serverDesc;
+        }
         if (DOM.serverLogo) DOM.serverLogo.style.display = config.logo ? '' : 'none';
     }
 
@@ -92,53 +98,7 @@
     function toggleHUD() {
         if (!DOM.hud) return;
         
-        if (DOM.hud.style.display === 'none') {
-            DOM.hud.style.display = '';
-            fadeIn(DOM.hud, 300);
-        } else {
-            fadeOut(DOM.hud, 300);
-        }
-    }
-
-    function fadeIn(element, duration) {
-        element.style.opacity = 0;
-        element.style.display = '';
-        
-        const start = performance.now();
-        
-        function animate(currentTime) {
-            const elapsed = currentTime - start;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            element.style.opacity = progress;
-            
-            if (progress < 1) {
-                requestAnimationFrame(animate);
-            }
-        }
-        
-        requestAnimationFrame(animate);
-    }
-
-    function fadeOut(element, duration) {
-        element.style.opacity = 1;
-        
-        const start = performance.now();
-        
-        function animate(currentTime) {
-            const elapsed = currentTime - start;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            element.style.opacity = 1 - progress;
-            
-            if (progress < 1) {
-                requestAnimationFrame(animate);
-            } else {
-                element.style.display = 'none';
-            }
-        }
-        
-        requestAnimationFrame(animate);
+        DOM.hud.classList.toggle('hidden');
     }
 
     function handleMessage(event) {

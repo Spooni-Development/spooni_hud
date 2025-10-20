@@ -36,7 +36,9 @@ local function sendConfigToNUI()
             temperature = Config.Setup.temperature,
             name = Config.Setup.name,
             desc = Config.Setup.desc,
-            logo = Config.Setup.logo
+            logo = Config.Setup.logo,
+            serverName = Config.Setup.serverName,
+            serverDesc = Config.Setup.serverDesc
         }
     })
 end
