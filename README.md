@@ -23,8 +23,6 @@ If you have any problems, you can always open a ticket in the [Spooni Discord](h
 The HUD automatically displays when you select a character. It shows your money, gold, role tokens, player ID, and current temperature in real-time.
 
 ## 3. For developers
-
-:::details Config.lua
 ```lua
 Config = {}
 
@@ -51,4 +49,3 @@ Config.Setup = {
     },
 }
 ```
-:::
