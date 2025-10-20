@@ -1,0 +1,201 @@
+/* Fonts */
+@font-face {
+    font-family: RDR2;
+    src: url(../fonts/RDR_Lino_Regular.ttf);
+}
+
+@font-face {
+    font-family: RDR2-DESC;
+    src: url(../fonts/Hapna_Slab_Serif.ttf);
+}
+
+/* Base - Responsive for all resolutions */
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Watermark - Scales with resolution */
+.watermark {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.5vw;
+}
+
+.watermark #serverLogo {
+    background-image: url('../img/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 3vw;
+    height: 3vw;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 70px;
+    max-height: 70px;
+}
+
+.watermark #serverInfo {
+    margin-right: 0.5vw;
+    text-align: right;
+}
+
+.watermark #serverName,
+.watermark #serverDesc {
+    color: #e3e3e3;
+    text-shadow: 0.1vw 0.1vw 0.2vw #000009;
+    font-family: RDR2;
+}
+
+.watermark #serverName {
+    font-size: clamp(24px, 2vw, 48px);
+    margin-bottom: -0.3vw;
+}
+
+.watermark #serverDesc {
+    font-size: clamp(12px, 0.8vw, 20px);
+}
+
+/* Player Info */
+.playerInfo,
+.playerCurrency {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Player Stats - Responsive positioning */
+.playerStats {
+    position: fixed;
+    bottom: 0.5vw;
+    left: 0.5vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.playerStats p {
+    color: #e3e3e3;
+    text-shadow: 0.1vw 0.1vw 0.2vw #000009;
+    font-family: RDR2;
+    font-size: clamp(14px, 0.9vw, 22px);
+    margin: 0.2vw 0;
+    padding-right: 0.3vw;
+}
+
+/* Player Currency - Scales with resolution */
+.playerCurrency #rol,
+.playerCurrency #gold,
+.playerCurrency #money {
+    text-shadow: 0.1vw 0.1vw 0.2vw #000009;
+    font-family: RDR2;
+    font-size: clamp(20px, 1.6vw, 36px);
+    margin-right: 0.8vw;
+}
+
+.playerCurrency #rol::before,
+.playerCurrency #gold::before {
+    content: '';
+    display: inline-block;
+    width: clamp(16px, 1.2vw, 28px);
+    height: clamp(16px, 1.2vw, 28px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 0.5vw;
+}
+
+.playerCurrency #rol::before {
+    background-image: url('../img/rol.png');
+}
+
+.playerCurrency #gold::before {
+    background-image: url('../img/gold.png');
+    vertical-align: text-top;
+}
+
+.playerCurrency .cents {
+    font-size: 50%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-70%);
+    display: inline-block;
+    border-bottom: 1px solid;
+    margin-left: 0.2vw;
+    line-height: 1;
+}
+
+.playerCurrency #rol {
+    color: #00aeef;
+}
+
+.playerCurrency #gold {
+    color: #ffd700;
+}
+
+.playerCurrency #money {
+    color: #e3e3e3;
+}
+
+/* Media Queries for specific resolutions */
+
+/* 4K (3840x2160) */
+@media (min-width: 2560px) {
+    .watermark #serverName {
+        font-size: 48px;
+    }
+    .playerCurrency #rol,
+    .playerCurrency #gold,
+    .playerCurrency #money {
+        font-size: 36px;
+    }
+}
+
+/* 1440p (2560x1440) */
+@media (min-width: 1920px) and (max-width: 2559px) {
+    .watermark #serverName {
+        font-size: 40px;
+    }
+    .playerCurrency #rol,
+    .playerCurrency #gold,
+    .playerCurrency #money {
+        font-size: 32px;
+    }
+}
+
+/* 1080p (1920x1080) - Default */
+@media (min-width: 1280px) and (max-width: 1919px) {
+    .watermark #serverName {
+        font-size: 36px;
+    }
+    .playerCurrency #rol,
+    .playerCurrency #gold,
+    .playerCurrency #money {
+        font-size: 28px;
+    }
+}
+
+/* Lower resolutions */
+@media (max-width: 1279px) {
+    .watermark #serverName {
+        font-size: 28px;
+    }
+    .playerCurrency #rol,
+    .playerCurrency #gold,
+    .playerCurrency #money {
+        font-size: 24px;
+    }
+}
