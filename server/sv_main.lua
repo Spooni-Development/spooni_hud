@@ -1,11 +1,4 @@
 local VORPcore = exports.vorp_core:GetCore()
-local Config = Config or {}
-
-local function Debug(message)
-    if Config.DevMode then
-        print('^3[' .. GetCurrentResourceName() .. ']^7 ' .. tostring(message))
-    end
-end
 
 RegisterNetEvent('spooni_hud:requestData', function()
     local src = source
@@ -38,8 +31,4 @@ exports('refreshHUD', function(source)
     if source and source > 0 then
         TriggerClientEvent('spooni_hud:refresh', source)
     end
-end)
-
-Citizen.CreateThread(function()
-    Debug('Server initialized')
 end)
